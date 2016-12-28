@@ -1,3 +1,26 @@
-body {
+body{
     padding: 20px;
+}
+
+.panel-look (@color, @font-color:#fff) {
+
+    border-color: @color;
+    .panel-heading{
+
+        border-color: @color;
+        background: @color;
+        color: @font-color;
+    }
+}
+
+.panel-success{
+    .panel-look(#5cb85c);
+}
+
+.panel-warning{
+    .panel-look(#ec971f);
+}
+
+.panel-danger{
+    .panel-look(#c9302c);
 }

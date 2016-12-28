@@ -6,14 +6,27 @@ app.config([
     '$stateProvider',
     function ($stateProvider){
         $stateProvider
-        
+        .state('home',{
+            url:'/home',
+            template:'<h2>Home</h2>'
+        })
         .state('about',{
             url:'/about',
-            templateUrl:'templates/about.html'
+            template:'<h2>About</h2>'
         })
         .state('contact',{
             url:'/contact',
-            templateUrl:'templates/contact.html'
+            template:'<h2>Contact</h2>'
+        })
+        .state('posts',{
+            url:'/posts',
+            templateUrl:'/templates/posts/list.html'
+
+        })
+        .state('posts-create',{
+            url:'/posts/create',
+            templateUrl:'/templates/posts/edit.html',
+            controller:'Posts.postController'
         })
 
     }
