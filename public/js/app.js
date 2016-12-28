@@ -27,7 +27,13 @@ app.config([
             url:'/posts/create',
             templateUrl:'/templates/posts/edit.html',
             controller:'Posts.postController'
+        })
+        .state('posts-view',{
+            url:'/posts/:id',
+            templateUrl:'/templates/posts/postView.html',
+            controller:'Posts.postController'
         });
+
 
     }
 ])
