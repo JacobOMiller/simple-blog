@@ -15,6 +15,9 @@ app.controller('Posts.postController',[
 
         $scope.post = {};
 
+
+        //function for creating posts in the db
+
         $scope.create = function () {
 
             // make sure we have a valid form
@@ -44,5 +47,35 @@ app.controller('Posts.postController',[
             }
 
         }
+        //function for reading all the posts from the db
+        $scope.readAll = function (){
+            console.log('reading in all posts from db');
+            // make a call to the server to read all the posts available
+            $http({
+                method:'Get',
+                url:'/posts?_sort=id&_order=DESC'
+
+
+            })
+            .success(function(response){
+                console.log('the object s:', response);
+                $scope.postList = response;
+            })
+
+        }
+        //function for setting up the controller once it is created
+        function setup (){
+            //check which page state we are currently on
+            var pageState = $state.current.name;
+            if (pageState == 'posts')
+            {
+                // when in the post state we need to  load in the post objects from the db
+                $scope.readAll ();
+            }
+        }
+
+        // run the setup and config for the controller
+        setup();
+
     }
 ]);

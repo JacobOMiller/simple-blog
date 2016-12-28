@@ -10,6 +10,11 @@ body{
         border-color: @color;
         background: @color;
         color: @font-color;
+
+        h2, h3{
+            font-size: 20px;
+            margin: 0;
+        }
     }
 }
 
@@ -23,4 +28,13 @@ body{
 
 .panel-danger{
     .panel-look(#c9302c);
+}
+.post.list{
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    .panel-primary{
+        .panel-look(#337ab7);
+    }
+
 }
